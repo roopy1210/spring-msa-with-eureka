@@ -49,12 +49,12 @@ public class OrderController {
 		
 		/*결제처리*/	
 		HttpEntity<Order> ordRequest = new HttpEntity<>(order);
-		ResponseEntity<List> pymentResponse =  restTemplate.postForEntity("http://localhost:7001/payment", ordRequest, List.class);
+		ResponseEntity<List> pymentResponse =  restTemplate.postForEntity("http://payment-service/payment", ordRequest, List.class);
 		
 		/*상품수량업데이트처리*/
 		ResponseEntity<List> productResponse = null;
 		if (pymentResponse.getStatusCodeValue() == 200) {
-			productResponse =  restTemplate.postForEntity("http://localhost:7002/product", ordRequest, List.class);
+			productResponse =  restTemplate.postForEntity("http://product-service/products", ordRequest, List.class);
 		}
 		
 		/*주문정보저장*/

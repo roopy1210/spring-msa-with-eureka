@@ -1,11 +1,10 @@
 server:
-  port: ${PORT:7002}
-  servlet:
-    application-display-name: product-service
+  port: 7002
 
 spring:
   application:
     name: product-service
+    
   datasource:
     hikari:
       connection-test-query: SELECT 1
@@ -26,3 +25,8 @@ spring:
     hibernate:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        
+eureka:           
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2

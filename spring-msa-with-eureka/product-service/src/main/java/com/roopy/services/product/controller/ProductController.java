@@ -18,7 +18,7 @@ public class ProductController {
 	@Autowired
 	private IProductService productService;
 
-	@RequestMapping(value = "/product", method = RequestMethod.POST)
+	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public void save(HttpServletRequest request, HttpServletResponse response,
 			@RequestBody Order order) throws Exception {
 		

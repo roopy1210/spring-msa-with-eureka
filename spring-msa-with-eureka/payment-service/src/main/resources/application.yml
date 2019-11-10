@@ -25,8 +25,14 @@ spring:
     hibernate:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-        
+
+##########################################################################################
+# 레지스트리 갱신하기                                                                    #
+# - 모든 클라이언트 서비스가 30초(기본값)마다 서버로 하트비트를 보내고 서버가 하트비트를 #
+#   받지 못하면 레지스트리에서 인스턴스를 제거하기 전에 90초를 기다린다.                 #
+#   이 시간을 줄이기 위해 아래와 같이 작은 값을 초 단위로 설정한다.                      #
+##########################################################################################        
 eureka:           
   instance:
-    leaseRenewalIntervalInSeconds: 1
+    leaseRenewalIntervalInSeconds: 1        
     leaseExpirationDurationInSeconds: 2
